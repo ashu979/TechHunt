@@ -80,73 +80,59 @@
                     </div>
                     <button style="margin-left: 640px;" type="submit" class="btn btn-primary mb-2">Run</button>
 
-
+                <form action="/check-answer"  method="post">
                     <div class="container parent">
                         <div class="row">
                             <div class='col col-lg-6 text-center'>
-                                <input type="radio" name="imgbackground" id="img1" class="d-none imgbgchk" value="">
+                                <input type="radio" name="exampleRadios" id="img1" class="d-none imgbgchk" value="option1">
                                 <label for="img1">
                                     <img src="img/lion.jpg" alt="Image 1">
                                     <div class="tick_container">
                                         <div class="tick"><i class="fa fa-check"></i></div>
                                     </div>
                                 </label>
-
-
                             </div>
                             <div class='col col-lg-6 text-center'>
-                                <input type="radio" name="imgbackground" id="img2" class="d-none imgbgchk" value="">
+                                <input type="radio" name="exampleRadios" id="img2" class="d-none imgbgchk" value="option2">
                                 <label for="img2">
                                     <img src="img/facebook.jpg" alt="Image 2">
                                     <div class="tick_container">
                                         <div class="tick"><i class="fa fa-check"></i></div>
                                     </div>
                                 </label>
-
-
-
-
                             </div>
                             <div class='col col-lg-6 text-center'>
-                                <input type="radio" name="imgbackground" id="img3" class="d-none imgbgchk" value="">
+                                <input type="radio" name="exampleRadios" id="img3" class="d-none imgbgchk" value="option3">
                                 <label for="img3">
                                     <img src="img/vlc.jpg" alt="Image 3">
                                     <div class="tick_container">
                                         <div class="tick"><i class="fa fa-check"></i></div>
                                     </div>
                                 </label>
-
                             </div>
                             <div class='col col-lg-6 text-center'>
-                                <input type="radio" name="imgbackground" id="img4" class="d-none imgbgchk" value="">
+                                <input type="radio" name="exampleRadios" id="img4" class="d-none imgbgchk" value="option4">
                                 <label for="img4">
                                     <img src="img/chrome.jpg" alt="Image 4">
                                     <div class="tick_container">
                                         <div class="tick"><i class="fa fa-check"></i></div>
                                     </div>
                                 </label>
-
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
+                    <% if (myData && myData.length > 0) { %>
+                        <input type="hidden" name="correctAnswer" value="<%= myData[3].value %>">
+                    <% } %>
+            
+                    <div class="text-center">
+                        <button id="myButton" type="submit" class="btn btn-dark btn-lg go-button">Continue</button>
+                    </div> 
+            
+                </form>
 
                 </div>
-
             </div>
-
-
-        </div>
-
-
-        <div class="text-center ">
-            <button type="button" class="btn btn-dark btn-lg go-button"></i> Continue</button>
-
         </div>
 
 
