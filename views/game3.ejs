@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>tech-hunt</title>
+
+
+    <script src="https://kit.fontawesome.com/7d9fb7cfe3.js" crossorigin="anonymous"></script>
+
+
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Ubuntu&display=swap"
+        rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/game3.css">
+
+</head>
+
+<body>
+
+    <section id="title">
+
+        <!-- Nav Bar -->
+
+        <div class="container-fluid">
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark ">
+                <a class="navbar-brand" href="">tech-hunt </a>
+
+            </nav>
+
+
+
+
+            <!-- Title -->
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h1 class="clue">117.98.6.122:5678</h1>
+                    <p style="font-size:40px ;">CMD is the best tool if you know.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="img/tom_happy.png" alt="staring_tom" style="margin-left:200px ;">
+
+                </div>
+            </div>
+
+
+        </div>
+        <form action="/check-answer"  method="post">
+        <div class="container parent">
+            <div class="row">
+                <div class='col col-lg-6 text-center'>
+                    <input type="radio" name="imgbackground" id="img1" class="d-none imgbgchk" value="option1">
+                    <label for="img1">
+                        <img src="img/device_1.png" style="height:300px ;" alt="Image 1">
+                        <div class="tick_container">
+                            <div class="tick"><i class="fa fa-check"></i></div>
+                        </div>
+                    </label>
+                    <p>IP Address 117.78.6.122</p>
+
+                    <div class="form-group mx-sm-3 mb-2">
+                        <input class="form-control" id="inputcmd1" placeholder="Enter Command Here">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Run</button>
+                </div>
+                <div class='col col-lg-6 text-center'>
+                    <input type="radio" name="imgbackground" id="img2" class="d-none imgbgchk" value="option2">
+                    <label for="img2">
+                        <img src="img/device_2.png" style="height:300px" alt="Image 2">
+                        <div class="tick_container">
+                            <div class="tick"><i class="fa fa-check"></i></div>
+                        </div>
+                    </label>
+
+                    <p>IP Address 117.98.6.122</p>
+                    <div class="form-group mx-sm-3 mb-2">
+
+                        <input class="form-control" id="inputcmd2" placeholder="Enter Command Here">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Run</button>
+
+
+                </div>
+                <div class='col col-lg-6 text-center'>
+                    <input type="radio" name="imgbackground" id="img3" class="d-none imgbgchk" value="option3">
+                    <label for="img3">
+                        <img src="img/device_3.png" style="height:300px" alt="Image 3">
+                        <div class="tick_container">
+                            <div class="tick"><i class="fa fa-check"></i></div>
+                        </div>
+                    </label>
+                    <p>IP Address 117.98.6.12</p>
+                    <div class="form-group mx-sm-3 mb-2">
+
+                        <input class="form-control" id="inputcmd3" placeholder="Enter Command Here">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Run</button>
+                </div>
+                <div class='col col-lg-6 text-center'>
+                    <input type="radio" name="imgbackground" id="img4" class="d-none imgbgchk" value="option4>
+                    <label for="img4">
+                        <img src="img/device_4.png" style="height:300px" alt="Image 4">
+                        <div class="tick_container">
+                            <div class="tick"><i class="fa fa-check"></i></div>
+                        </div>
+                    </label>
+                    <p>IP Address 117.78.6.123</p>
+                    <div class="form-group mx-sm-3 mb-2">
+
+                        <input class="form-control" id="inputcmd4" placeholder="Enter Command Here">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Run</button>
+                </div>
+            </div>
+        </div>
+        <% if (myData && myData.length > 0) { %>
+            <input type="hidden" name="correctAnswer" value="<%= myData[2].value %>">
+        <% } %>
+
+        <div class="text-center">
+            <button id="myButton" type="submit" class="btn btn-dark btn-lg go-button">Continue</button>
+        </div> 
+    </form>
+
+    </section>
+</body>
+
+</html>

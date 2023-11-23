@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>tech-hunt</title>
+
+
+    <script src="https://kit.fontawesome.com/7d9fb7cfe3.js" crossorigin="anonymous"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700;900&family=Ubuntu&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/instruction.css">
+
+</head>
+
+<body>
+
+    <section id="title">
+
+
+        <div class="container-fluid">
+
+
+            <nav class="navbar navbar-expand-lg navbar-dark ">
+                <a class="navbar-brand" href="">tech-hunt </a>
+
+            </nav>
+
+            <div>
+                <div>
+                    <% if (myUsers && myUsers.length > 0) { %>
+                        <table class="table">
+                            <thead class="thead-dark">
+                              <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Ques 1's Attempts</th>
+                                <th scope="col">Ques 2's Attempts</th>
+                                <th scope="col">Ques 3's Attempts</th>
+                                <th scope="col">Ques 4's Attempts</th>
+                                <!-- <th scope="col">Role</th> -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for(var i=0; i < myUsers.length; i++) { %>
+                                <tr>
+                                    <td><%= myUsers[i].name %></td>
+                                    <td><%= myUsers[i].email %></td>
+                                    <td><%= myUsers[i].answerRecord.ques1 ? myUsers[i].answerRecord.ques1 : "Not Attempted" %></td>
+                                    <td><%= myUsers[i].answerRecord.ques2 ? myUsers[i].answerRecord.ques2 : "Not Attempted" %></td>
+                                    <td><%= myUsers[i].answerRecord.ques3 ? myUsers[i].answerRecord.ques3 : "Not Attempted" %></td>
+                                    <td><%= myUsers[i].answerRecord.ques4 ? myUsers[i].answerRecord.ques4 : "Not Attempted" %></td>
+                                    <!-- <td><%= myUsers[i].role %></td> -->
+                                </tr>
+                            <% } %>
+                            </tbody>
+                          </table>
+                    <% } %>
+                    <div class="text-center">
+                        <button type="button" class="btn btn-dark btn-lg go-button" onclick="logout()"></i> Log Out</button>
+                    </div>
+
+                </div>
+            </div>
+            <script>
+              function logout(){
+                window.location.href="/login"
+              }
+            </script>
+
+        </div>
+
+    </section>
+</body>
+</html>
