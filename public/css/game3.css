@@ -19,6 +19,7 @@ h1 {
 #title {
     background-color: #97D1CE;
     color: white;
+    height: 230vh;
 
 }
 
@@ -45,8 +46,9 @@ section {
 }
 
 .go-button {
-    margin: 5% 3% 5% 0;
+    margin: 25% 3% 5% 0;
     align-content: center;
+
 }
 
 h3 {
