@@ -60,82 +60,7 @@
 
 
         </div>
-<<<<<<< Updated upstream
-        <form action="/check-answer" method="post">
-            <div class="container parent">
-                <div class="row">
-                    <div class='col col-lg-6 text-center'>
-                        <input type="radio" name="imgbackground" id="img1" class="d-none imgbgchk" value="option1">
-                        <label for="img1">
-                            <img src="img/device_1.png" style="height:300px ;" alt="Image 1">
-                            <div class="tick_container">
-                                <div class="tick"><i class="fa fa-check"></i></div>
-                            </div>
-                        </label>
-                        <p>IP Address 117.78.6.122</p>
-
-                        <div class="form-group mx-sm-3 mb-2">
-                            <input class="form-control" id="inputcmd1" placeholder="Enter Command Here">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Run</button>
-                    </div>
-                    <div class='col col-lg-6 text-center'>
-                        <input type="radio" name="imgbackground" id="img2" class="d-none imgbgchk" value="option2">
-                        <label for="img2">
-                            <img src="img/device_2.png" style="height:300px" alt="Image 2">
-                            <div class="tick_container">
-                                <div class="tick"><i class="fa fa-check"></i></div>
-                            </div>
-                        </label>
-
-                        <p>IP Address 117.98.6.122</p>
-                        <div class="form-group mx-sm-3 mb-2">
-
-                            <input class="form-control" id="inputcmd2" placeholder="Enter Command Here">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Run</button>
-
-
-                    </div>
-                    <div class='col col-lg-6 text-center'>
-                        <input type="radio" name="imgbackground" id="img3" class="d-none imgbgchk" value="option3">
-                        <label for="img3">
-                            <img src="img/device_3.png" style="height:300px" alt="Image 3">
-                            <div class="tick_container">
-                                <div class="tick"><i class="fa fa-check"></i></div>
-                            </div>
-                        </label>
-                        <p>IP Address 117.98.6.12</p>
-                        <div class="form-group mx-sm-3 mb-2">
-
-                            <input class="form-control" id="inputcmd3" placeholder="Enter Command Here">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Run</button>
-                    </div>
-                    <div class='col col-lg-6 text-center'>
-                        <input type="radio" name="imgbackground" id="img4" class="d-none imgbgchk" value="option4">
-                        <label for="img4">
-                            <img src="img/device_4.png" style="height:300px" alt="Image 4">
-                            <div class="tick_container">
-                                <div class="tick"><i class="fa fa-check"></i></div>
-                            </div>
-                        </label>
-                        <p>IP Address 117.78.6.123</p>
-                        <div class="form-group mx-sm-3 mb-2">
-
-                            <input class="form-control" id="inputcmd4" placeholder="Enter Command Here">
-                        </div>
-                        <button type="submit" class="btn btn-primary mb-2">Run</button>
-                    </div>
-                </div>
-            </div>
-            <% if (myData && myData.length> 0) { %>
-                <input type="hidden" name="correctAnswer" value="<%= myData[2].value %>">
-                <% } %>
-
-
-        </form>
-=======
+        <%- include ("./partials/messages"); %>
         <form action="/check-answer"  method="post">
         <div class="container parent">
             <div class="row">
@@ -147,12 +72,12 @@
                             <div class="tick"><i class="fa fa-check"></i></div>
                         </div>
                     </label>
-                    <p id="secondDiv" style="display:none;">IP Address 117.78.6.122</p>
+                    <p id="secondDiv1" style="display:none;">IP Address 117.78.6.122</p>
 
                     <div class="form-group mx-sm-3 mb-2">
-                        <input class="form-control" id="inputcmd" placeholder="Enter Command Here">
+                        <input class="form-control" id="inputcmd1" placeholder="Enter Command Here">
                     </div>
-                    <button  class="btn btn-primary mb-2" id="toggleBtn">Run</button>
+                    <button  class="btn btn-primary mb-2" id="toggleBtn1">Run</button>
                 </div>
 
                 <div class='col col-lg-6 text-center'>
@@ -163,11 +88,11 @@
                             <div class="tick"><i class="fa fa-check"></i></div>
                         </div>
                     </label>
-                    <p id="secondDiv" style="display:none;">IP Address 117.98.6.122</p>
+                    <p id="secondDiv2" style="display:none;">IP Address 117.98.6.122</p>
                     <div class="form-group mx-sm-3 mb-2">
-                        <input class="form-control" id="inputcmd" placeholder="Enter Command Here">
+                        <input class="form-control" id="inputcmd2" placeholder="Enter Command Here">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2" id="toggleBtn">Run</button>
+                    <button  class="btn btn-primary mb-2" id="toggleBtn2">Run</button>
                 </div>
 
                 <div class='col col-lg-6 text-center'>
@@ -178,11 +103,11 @@
                             <div class="tick"><i class="fa fa-check"></i></div>
                         </div>
                     </label>
-                    <p id="secondDiv" style="display:none;">IP Address 117.98.6.12</p>
+                    <p id="secondDiv3" style="display:none;">IP Address 117.98.6.12</p>
                     <div class="form-group mx-sm-3 mb-2">
-                        <input class="form-control" id="inputcmd" placeholder="Enter Command Here">
+                        <input class="form-control" id="inputcmd3" placeholder="Enter Command Here">
                     </div>
-                    <button  class="btn btn-primary mb-2" id="toggleBtn">Run</button>
+                    <button  class="btn btn-primary mb-2" id="toggleBtn3">Run</button>
                 </div>
 
                 <div class='col col-lg-6 text-center'>
@@ -193,26 +118,61 @@
                             <div class="tick"><i class="fa fa-check"></i></div>
                         </div>
                     </label>
-                    <p id="secondDiv" style="display:none;">IP Address 117.78.6.123</p>
+                    <p id="secondDiv4" style="display:none;">IP Address 117.78.6.123</p>
                     <div class="form-group mx-sm-3 mb-2">
-                        <input class="form-control" id="inputcmd" placeholder="Enter Command Here">
+                        <input class="form-control" id="inputcmd4" placeholder="Enter Command Here">
                     </div>
-                    <button  class="btn btn-primary mb-2" id="toggleBtn">Run</button>
+                    <button  class="btn btn-primary mb-2" id="toggleBtn4">Run</button>
                 </div>
             </div>
         </div>
         <% if (myData && myData.length > 0) { %>
             <input type="hidden" name="correctAnswer" value="<%= myData[2].value %>">
         <% } %>
->>>>>>> Stashed changes
         <div class="text-center">
             <button id="myButton" type="submit" class="btn btn-dark btn-lg go-button">Continue</button>
         </div>
 
     <script>
-        document.getElementById("toggleBtn").onclick = function() {
-            var secondDiv = document.getElementById("secondDiv");
-            if (secondDiv.style.display === "none") {
+        document.getElementById("toggleBtn1").onclick = function(e) {
+            e.preventDefault();
+            var secondDiv = document.getElementById("secondDiv1");
+            var inputcmd = document.getElementById("inputcmd1").value;
+            
+            if (secondDiv.style.display === "none" && inputcmd === "ipconfig") {
+                secondDiv.style.display = "block";
+            } else {
+                secondDiv.style.display = "none";
+            }
+        };
+        document.getElementById("toggleBtn2").onclick = function(e) {
+            e.preventDefault();
+            var secondDiv = document.getElementById("secondDiv2");
+            var inputcmd = document.getElementById("inputcmd2").value;
+            
+            if (secondDiv.style.display === "none" && inputcmd === "ipconfig") {
+                secondDiv.style.display = "block";
+            } else {
+                secondDiv.style.display = "none";
+            }
+        };
+        document.getElementById("toggleBtn3").onclick = function(e) {
+            e.preventDefault();
+            var secondDiv = document.getElementById("secondDiv3");
+            var inputcmd = document.getElementById("inputcmd3").value;
+            
+            if (secondDiv.style.display === "none" && inputcmd === "ipconfig") {
+                secondDiv.style.display = "block";
+            } else {
+                secondDiv.style.display = "none";
+            }
+        };
+        document.getElementById("toggleBtn4").onclick = function(e) {
+            e.preventDefault();
+            var secondDiv = document.getElementById("secondDiv4");
+            var inputcmd = document.getElementById("inputcmd4").value;
+            
+            if (secondDiv.style.display === "none" && inputcmd === "ipconfig") {
                 secondDiv.style.display = "block";
             } else {
                 secondDiv.style.display = "none";

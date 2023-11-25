@@ -47,20 +47,36 @@ router.post('/register', (req, res) => {
   let errors = [];
 
   if (!name || !email || !password || !password2) {
-    return res.send({"result":"All field are required"});
+    errors.push({msg:"All field are required"});
   }
   
   if (password != password2) {
-    return res.send({"result":"Passwords do not match"});
+    errors.push({msg:"Passwords do not match"});
   }
   
   if (password.length < 6) {
-    return res.send({"result":"Password must be at least 6 characters"});
+    errors.push({msg:"Password must be at least 6 characters"});
   }
+
+  if (errors.length > 0) {
+    res.render('register', {
+      errors,
+      name,
+      email,
+      password,
+      password2
+    });
+  } else {
     User.findOne({ email: email }).then(user => {
       if (user) {
-        res.send({"result":"Email already Exists"});
-
+        errors.push({msg:"Email already Exists"});
+        res.render('register', {
+          errors,
+          name,
+          email,
+          password,
+          password2
+        });
       } else {
         const newUser = new User({
           name,
@@ -76,7 +92,11 @@ router.post('/register', (req, res) => {
             newUser
               .save()
               .then(user => {
-                res.redirect('/login');
+                req.flash(
+                  'success_msg',
+                  'You are now registered and can log in'
+                );
+                res.redirect('/login')
               })
               .catch(err => console.log(err));
           });
@@ -84,6 +104,7 @@ router.post('/register', (req, res) => {
       }
     });
   }
+}
   catch(err){
     console.log(err);
     res.status(200).send({"result":"Some error occured"});

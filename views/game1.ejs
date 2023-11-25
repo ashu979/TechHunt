@@ -8,7 +8,7 @@
 
     <script src="https://kit.fontawesome.com/7d9fb7cfe3.js" crossorigin="anonymous"></script>
 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -25,6 +25,7 @@
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/landing.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </head>
 
@@ -61,6 +62,7 @@
 
                 </div>
             </div>
+            <%- include ("./partials/messages"); %>
             <form action="/check-answer"  method="post">
             <div class="form-check" style="margin: 20px;">
                 <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">

@@ -6,6 +6,10 @@ const session = require('express-session')
 const passport = require('passport')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const User = require('./models/User.js');
+const ejs = require('ejs');
+// import Toastify from 'toastify-js';
+const Toastify = require('toastify-js');
+// import "toastify-js/src/toastify.css";
 
 require('dotenv').config()
 require('./passport')(passport);
@@ -46,7 +50,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   store: store,
-  cookie: { maxAge: 1000 * 60 * 2 }
+  cookie: { maxAge: 1000 * 60 * 5 }
 }));
 
 
@@ -155,13 +159,21 @@ app.get('/final', (req, res) => {
   res.render('final', { myData: res.locals.myData, gameCount });
 });
 
+app.get('/partials/messages', (req, res) => {
+  res.render('partials/messages');
+});
+
 let gameCount = 1;
 let chances = 0;
 app.post('/check-answer', async (req, res) => {
+  let errors = []
   if (chances == 3) {
     console.log("Sorry, No more chances.");
     chances = 0;
-    return res.redirect('/');
+    gameCount=1;
+    errors.push({msg:"No more chances, Try Again !"})
+    // return res.redirect('/');
+    return res.render('landing',{errors})
   }
   const userAnswer = req.body.exampleRadios; // Get the selected radio button value
   const correctAnswer = req.body.correctAnswer; // Get the correct answer value from the hidden input field
@@ -189,15 +201,25 @@ app.post('/check-answer', async (req, res) => {
     }
     chances = 0;
     console.log('Congratulations! Your answer is correct.');
-    gameCount++;
-    const nextGameUrl = '/game' + gameCount;
-    res.redirect(nextGameUrl);
+    if(gameCount==4){
+      res.redirect('/final');
+    }else {
+      gameCount++;
+      const nextGameUrl = '/game' + gameCount;
+      res.redirect(nextGameUrl);
+    }
   } else {
     // User's answer is incorrect
     chances++;
-    console.log("Sorry, your answer is incorrect.");
-    const nextGameUrl = '/game' + gameCount;
-    res.redirect(nextGameUrl);
+    // console.log("Sorry, your answer is incorrect.");
+    // res.render('partials/messages', { msg: req.flash('error_msg',
+    // 'Sorry , your answer is incorrect !') 
+    // });
+    errors.push({msg:`Your answer is incorrect ,${3-chances} more chances left !`});
+    // errors.push({msg:"Your answer is incorrect! "});
+    const nextGameUrl = 'game' + gameCount;
+    // res.redirect(nextGameUrl);
+    return res.render(nextGameUrl,{errors});
   }
 });
 

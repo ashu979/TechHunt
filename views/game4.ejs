@@ -63,7 +63,7 @@
             <div class="row">
                 <div>
                     <div style="margin: auto;" id="cmd">
-                        <div id="content">
+                        <div id="content" style="display: none;">
                             <pre>Name              PID            PORT</pre>
                             <pre>chrome.exe        3454           7689</pre>
                             <pre>facebook.exe      6554           5678</pre>
@@ -75,11 +75,11 @@
 
                     <div class="form-group mx-sm-3 mb-2">
                         <input style="max-width: 400px; max-height: 400px; margin:auto;" class="form-control"
-                            id="inputcmd1" placeholder="Enter Command Here">
+                            id="inputcmd" placeholder="Enter Command Here">
 
                     </div>
-                    <button style="margin-left: 640px;" type="submit" class="btn btn-primary mb-2">Run</button>
-
+                    <button style="margin-left: 640px;" class="btn btn-primary mb-2" id="toggleBtn">Run</button>
+                <%- include ("./partials/messages"); %>
                 <form action="/check-answer"  method="post">
                     <div class="container parent">
                         <div class="row">
@@ -134,7 +134,19 @@
                 </div>
             </div>
         </div>
-
+        <script>
+            document.getElementById("toggleBtn").onclick = function(e) {
+            e.preventDefault();
+            var secondDiv = document.getElementById("content");
+            var inputcmd = document.getElementById("inputcmd").value;
+            
+            if (secondDiv.style.display === "none" && inputcmd === "netstat-a") {
+                secondDiv.style.display = "block";
+            } else {
+                secondDiv.style.display = "none";
+            }
+        };
+        </script>
 
     </section>
 </body>
